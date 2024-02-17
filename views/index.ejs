@@ -1,0 +1,21 @@
+<% layout("/layouts/boilerplate") %>
+
+    <h1>User Detail</h1>
+
+    <div class="row row-cols-lg-3 row-cols-md-3 row-cols-sm-1 mt-3">
+    <% for(let user of users){ %>
+        <div class="card col users-card">
+            <h3>@<%= user.name %></h3>
+            <br><br>
+            <button type="button" class="btn btn-secondary"><a href="http://localhost:8080/users/<%= user._id %>/edit">Edit</a></button>&nbsp; &nbsp;
+            <button class="btn btn-primary"><a href= "http://localhost:8080/users/<%= user._id %>" >See in Detail</a></button>
+            <br><br>
+            <form action="/users/<%= user._id %>?_method=DELETE" method="post">
+                <button class="btn btn-danger">Delete</button>
+            </form>
+        </div>
+    <% } %>
+</div>
+    <br><br>
+    <a href="http://localhost:8080/users/new">Create new User Deatil</a>
+
